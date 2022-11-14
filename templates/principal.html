@@ -1,12 +1,21 @@
 <html>
     <head>
         <title>casa</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     </head>    
     <body>
         ola usuario
         <tl>
         <th> ola mundo</td>
         </tl>
+        {% if True == False %}
+          <p>Opa!</p>
+        {% endif %}
+
+        
+        <section>
+            <a href="logout" class="btn btn-primary" role="button" aria-pressed="true"> Sair</a>
+        </section> 
     </body>    
             
 </html>            

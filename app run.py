@@ -20,6 +20,7 @@ app = Flask(__name__)
 app.secret_key = 'any random string'
 
 @app.route("/", methods=['GET', 'POST'])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
        email = request.form.get("email")
@@ -52,9 +53,18 @@ def create_account():
 
 @app.route("/principal", methods=['GET', 'POST'])
 def principal():
-    email = session['email']
-    print(email)
-    return render_template('principal.html') 
-
+    try:
+        email = session['email']
+        print(email)
+        return render_template('principal.html')
+    except:
+        return redirect(url_for('login'))
+    
+@app.route("/logout", methods=['GET', 'POST'])
+def logout():
+    session.pop('email',None)
+    return redirect(url_for('login'))
+        
+         
 if __name__ == '__main__':
     app.run(debug=True)
