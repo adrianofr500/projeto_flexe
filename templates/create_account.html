@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python web app - Create account</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    </head>
+    <body>
+        <h1> Criar conta!01</h1>
+
+       <script href="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <form action="{{ url_for('create_account')}}" method="post">
+            <div class="mb-10">
+                <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name='email' placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="exampleFormControlInput1" name="pass" placeholder="*****">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
+        </form>
+    </body>
+</html>

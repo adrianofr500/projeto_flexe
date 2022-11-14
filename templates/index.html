@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python web app</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <div class="borde borde-primary mt-4 text-center"><h1>Seja bem vidos<h1>
+        </div>
+        <div class="mb-10">
+        <script href="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <div class="container mt-4">
+            <div class="row align-items-center">
+                <div class="row align-items-center">
+               
+                        <form action="{{ url_for('login')}}" method="post">
+                          <div class="mb-3">
+                              <label for="exampleFormControlInput1" class="form-label"></label>
+                              <input type="email" class="form-control" id="exampleFormControlInput1" name='email' placeholder="name@example.com">
+                          </div>
+                          <div class="mb-3">
+                              <label for="exampleFormControlInput2" class="form-label">"Senha"</label>
+                              <input type="password" class="form-control" id="exampleFormControlInput1" name="pass" placeholder="*****">
+                          </div>
+                          <section>
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            <a href="create_account" class="btn btn-primary" role="button" aria-pressed="true"> Criar conta</a>
+                          </section> 
+                         
+                        </form>
+                
+                        <!img src="static/img/flor.jpg" class="img-fluid" alt="Responsive image">
+        
+                </div>    
+    </body>
+</html>
