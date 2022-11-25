@@ -22,19 +22,26 @@ app.secret_key = 'any random string'
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
-       email = request.form.get("email")
-       password = request.form.get("pass")
-       
-       try:
-           user = auth.sign_in_with_email_and_password(email, password)
-           session['email'] = email
-           return redirect(url_for('principal'))
-       except:
-          # flash('Dados incorretos!')
-           print("dados incorretos")
-           
-    return render_template('index.html')
+    try:
+        email = session['email']
+        print(email)
+        return redirect(url_for('principal'))
+    except:
+        
+    
+        if request.method == "POST":
+            email = request.form.get("email")
+            password = request.form.get("pass")
+            
+            try:
+                user = auth.sign_in_with_email_and_password(email, password)
+                session['email'] = email
+                return redirect(url_for('principal'))
+            except:
+                # flash('Dados incorretos!')
+                print("dados incorretos")
+            
+        return render_template('index.html')
 
 
 @app.route("/create_account", methods=['GET', 'POST'])
@@ -64,6 +71,7 @@ def principal():
 def logout():
     session.pop('email',None)
     return redirect(url_for('login'))
+     
         
          
 if __name__ == '__main__':
