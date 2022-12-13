@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template,session,redirect,url_for
 import pyrebase
 
+#
+
 firebaseConfig = {
   'apiKey': "AIzaSyBbXawfxVGrNrqYCfALIRdBmXTKcDObMsg",
   'authDomain': "python-60020.firebaseapp.com",
